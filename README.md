@@ -60,13 +60,13 @@ update-database
 
 ## Use
 
-This CID is for storing a json parameter used to build a Web or Mobile screen.
+This CRUD is for storing a json parameter used to build a Web or Mobile screen.
 Follow the code Add:
 
 ```sh
 {
     "status": true,
-    "jsonContext": "{\"menu\": {\"id\": \"file\",\"value\": \"File\", \"popup\": {\"menuitem\": [ {\"value\": \"New\", \"onclick\": \"CreateNewDoc()\"},{\"value\": \"Open\", \"onclick\": \"OpenDo()\"},{\"value\":\"Close\", \"onclick\": \"CloseDoc()\"}}}}"
+    "jsonContext": "{\"menu\": {\"id\": \"file\",\"value\": \"File\", \"popup\": {\"menuitem\": [ {\"value\": \"New\", \"onclick\": \"CreateNewDoc()\"},{\"value\": \"Open\", \"onclick\": \"OpenDo()\"},{\"value\":\"Close\", \"onclick\": \"CloseDoc()\"}]}}}"
 }
 ```
 
