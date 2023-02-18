@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "8dced6aa-7fde-4acc-80a4-986b9d67c568",
+		"name": "CqrsAndMediator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7967020"
+	},
+	"item": [
+		{
+			"name": "main",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7028/api/main",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7028",
+					"path": [
+						"api",
+						"main"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "main-by-id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7028/api/main/id?id=8417c4d6-9d44-46e4-a24f-cf36eb7c220d",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7028",
+					"path": [
+						"api",
+						"main",
+						"id"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "8417c4d6-9d44-46e4-a24f-cf36eb7c220d"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "main-delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7028/api/main?id=33fff6f8-2a54-40a2-a00d-aeb3c7c7e849",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7028",
+					"path": [
+						"api",
+						"main"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "33fff6f8-2a54-40a2-a00d-aeb3c7c7e849"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "main-add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": true,\r\n    \"jsonContext\": \"{\\\"menu\\\": {\\\"id\\\": \\\"file\\\",\\\"value\\\": \\\"File\\\", \\\"popup\\\": {\\\"menuitem\\\": [ {\\\"value\\\": \\\"New\\\", \\\"onclick\\\": \\\"CreateNewDoc()\\\"},{\\\"value\\\": \\\"Open\\\", \\\"onclick\\\": \\\"OpenDo()\\\"},{\\\"value\\\":\\\"Close\\\", \\\"onclick\\\": \\\"CloseDoc()\\\"}}}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7028/api/main",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7028",
+					"path": [
+						"api",
+						"main"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "main-update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"id\": \"8417c4d6-9d44-46e4-a24f-cf36eb7c220d\",\r\n    \"status\": true,\r\n    \"jsonContext\": \"{\\\"widget\\\":{\\\"window\\\":{\\\"title\\\":\\\"Sample Widget\\\",\\\"nameClass\\\":\\\"main_window\\\",\\\"widthDiv\\\":500,\\\"heightDiv\\\":500}}\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7028/api/main",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7028",
+					"path": [
+						"api",
+						"main"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
