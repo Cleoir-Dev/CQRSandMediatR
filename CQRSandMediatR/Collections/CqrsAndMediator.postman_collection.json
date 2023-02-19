@@ -32,7 +32,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:7028/api/main/id?id=8417c4d6-9d44-46e4-a24f-cf36eb7c220d",
+					"raw": "https://localhost:7028/api/main/id?id=e6f8eaa3-bc5a-47da-8791-586fe6471bb1",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -46,7 +46,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "8417c4d6-9d44-46e4-a24f-cf36eb7c220d"
+							"value": "e6f8eaa3-bc5a-47da-8791-586fe6471bb1"
 						}
 					]
 				}
@@ -59,7 +59,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:7028/api/main?id=33fff6f8-2a54-40a2-a00d-aeb3c7c7e849",
+					"raw": "https://localhost:7028/api/main?id=6777c033-bc50-4b45-b465-d5b29d458e05",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -72,7 +72,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "33fff6f8-2a54-40a2-a00d-aeb3c7c7e849"
+							"value": "6777c033-bc50-4b45-b465-d5b29d458e05"
 						}
 					]
 				}
@@ -86,7 +86,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"status\": true,\r\n    \"jsonContext\": \"{\\\"menu\\\": {\\\"id\\\": \\\"file\\\",\\\"value\\\": \\\"File\\\", \\\"popup\\\": {\\\"menuitem\\\": [ {\\\"value\\\": \\\"New\\\", \\\"onclick\\\": \\\"CreateNewDoc()\\\"},{\\\"value\\\": \\\"Open\\\", \\\"onclick\\\": \\\"OpenDo()\\\"},{\\\"value\\\":\\\"Close\\\", \\\"onclick\\\": \\\"CloseDoc()\\\"}}}}\"\r\n}",
+					"raw": "{\r\n    \"jsonContext\": {\r\n        \"widget\": {\r\n            \"window\": {\r\n                \"title\": \"Sample Widget\",\r\n                \"nameClass\": \"main_window\",\r\n                \"widthDiv\": 500,\r\n                \"heightDiv\": 500\r\n            }\r\n        }\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -115,7 +115,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n    \"id\": \"8417c4d6-9d44-46e4-a24f-cf36eb7c220d\",\r\n    \"status\": true,\r\n    \"jsonContext\": \"{\\\"widget\\\":{\\\"window\\\":{\\\"title\\\":\\\"Sample Widget\\\",\\\"nameClass\\\":\\\"main_window\\\",\\\"widthDiv\\\":500,\\\"heightDiv\\\":500}}\"\r\n  }",
+					"raw": "{\r\n    \"id\": \"e541019e-e62a-40d2-a10a-387006d9ee3b\",\r\n    \"status\": true,\r\n    \"jsonContext\": {\r\n        \"menu\": {\r\n            \"id\": \"file\",\r\n            \"value\": \"File\",\r\n            \"popup\": {\r\n                \"menuitem\": [\r\n                    {\r\n                        \"value\": \"New\",\r\n                        \"onclick\": \"CreateNewDoc()\"\r\n                    },\r\n                    {\r\n                        \"value\": \"Open\",\r\n                        \"onclick\": \"OpenDo()\"\r\n                    },\r\n                    {\r\n                        \"value\": \"Close\",\r\n                        \"onclick\": \"CloseDoc()\"\r\n                    }\r\n                ]\r\n            }\r\n        }\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
