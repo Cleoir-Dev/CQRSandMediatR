@@ -65,19 +65,38 @@ Follow the code Add:
 
 ```sh
 {
-    "status": true,
-    "jsonContext": "{\"menu\": {\"id\": \"file\",\"value\": \"File\", \"popup\": {\"menuitem\": [ {\"value\": \"New\", \"onclick\": \"CreateNewDoc()\"},{\"value\": \"Open\", \"onclick\": \"OpenDo()\"},{\"value\":\"Close\", \"onclick\": \"CloseDoc()\"}]}}}"
+    "jsonContext": {
+        "widget": {
+            "window": {
+                "title": "Sample Widget",
+                "nameClass": "main_window",
+                "widthDiv": 500,
+                "heightDiv": 500
+            }
+        }
+    }
 }
 ```
 
-Method Get:
+Method GetAll:
 
 ```sh
-{
-    "id": "8417c4d6-9d44-46e4-a24f-cf36eb7c220d",
-    "status": true,
-    "jsonContext": "{\"widget\":{\"window\":{\"title\":\"Sample Konfabulator Widget\",\"nameClass\":\"main_window\",\"widthDiv\":500,\"heightDiv\":500}}"
-}
+[
+    {
+        "id": "c428a71b-486b-49bf-96e7-05d8ff5fa65c",
+        "status": true,
+        "jsonContext": {
+            "widget": {
+                "window": {
+                    "title": "Sample Widget",
+                    "nameClass": "main_window",
+                    "widthDiv": 500,
+                    "heightDiv": 500
+                }
+            }
+        }
+    }
+]
 ```
 
 
