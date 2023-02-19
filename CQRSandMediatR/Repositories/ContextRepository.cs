@@ -12,11 +12,10 @@ namespace CQRSandMediatR.Repositories
         {
             _dbContext = dbContext;
         }
-        public async Task<DetailModel> AddAsync(DetailModel details)
+        public async Task<int> AddAsync(DetailModel details)
         {
-            var result = _dbContext.Details.Add(details);
-            await _dbContext.SaveChangesAsync();
-            return result.Entity;
+            _dbContext.Details.Add(details);
+            return await _dbContext.SaveChangesAsync();
         }
 
         public async Task<int> DeleteAsync(Guid Id)

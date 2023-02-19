@@ -1,8 +1,8 @@
 ﻿using CQRSandMediatR.Commands;
-using CQRSandMediatR.Model;
 using CQRSandMediatR.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json.Nodes;
 
 namespace CQRSandMediatR.Controllers
 {
@@ -11,48 +11,85 @@ namespace CQRSandMediatR.Controllers
     public class MainController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly ILogger<MainController> _logger;
 
-        public MainController(IMediator mediator, ILogger<MainController> logger)
+        public MainController(IMediator mediator)
         {
             _mediator = mediator;
-            _logger = logger;
         }
 
         [HttpGet]
-        public async Task<List<DetailModel>> GetListAsync()
+        public async Task<List<object>> GetListAsync()
         {
+            List<object> ResultList = new List<object>();
+
             var details = await _mediator.Send(new GetListQuery());
 
-            return details;
+            foreach (var detail in details)
+            {
+                ResultList.Add(new
+                {
+                    id = detail.Id,
+                    status = detail.Status,
+                    jsonContext = JsonNode.Parse(detail.JsonContext).AsObject()
+                });
+            }
+
+            return ResultList;
         }
 
         [HttpGet("id")]
-        public async Task<DetailModel> GetByIdAsync(Guid id)
+        public async Task<object> GetByIdAsync(Guid id)
         {
-            var details = await _mediator.Send(new GetByIdQuery() { Id = id });
+            object? result;
 
-            return details;
+            var detail = await _mediator.Send(new GetByIdQuery() { Id = id });
+
+            if (detail != null)
+            {
+                result = new
+                {
+                    id = detail.Id,
+                    status = detail.Status,
+                    jsonContext = JsonNode.Parse(detail.JsonContext).AsObject()
+                };
+                return result;
+            }
+
+            result = new
+            {
+                id = id,
+                status = false,
+                jsonContext = "Json não encontrado!"
+            };
+
+            return result;
+
         }
 
 
         [HttpPost]
-        public async Task<DetailModel> AddAsync(DetailModel details)
+        public async Task<int> AddAsync(object json)
         {
-            var result = await _mediator.Send(new CreateCommand(
-                details.Status,
-                details.JsonContext));
-            return result;
+            JsonObject obj = JsonNode.Parse(json.ToString()).AsObject();
+
+            var id = await _mediator.Send(new CreateCommand(obj["jsonContext"].ToString()));
+
+            return id;
         }
 
         [HttpPut]
-        public async Task<int> UpdateAsync(DetailModel details)
+        public async Task<int> UpdateAsync(object json)
         {
+
+            JsonObject obj = JsonNode.Parse(json.ToString()).AsObject();
+
             var id = await _mediator.Send(new UpdateCommand(
-               details.Id,
-                details.Status,
-               details.JsonContext));
+                (Guid)obj["id"],
+                (bool)obj["status"],
+                obj["jsonContext"].ToString()));
+
             return id;
+
         }
 
         [HttpDelete]

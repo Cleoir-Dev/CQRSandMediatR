@@ -2,10 +2,10 @@
 {
     public class DetailModel
     {
-        public DetailModel(bool status, string jsonContext)
+        public DetailModel(string jsonContext)
         {
             Id = Guid.NewGuid();
-            Status = status;
+            Status = true;
             JsonContext = jsonContext;
         }
 

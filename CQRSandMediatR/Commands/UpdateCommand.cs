@@ -1,5 +1,4 @@
-﻿using CQRSandMediatR.Model;
-using MediatR;
+﻿using MediatR;
 
 namespace CQRSandMediatR.Commands
 {
