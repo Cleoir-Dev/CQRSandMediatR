@@ -1,7 +1,8 @@
 # CQRS AND MEDIATR
 ##### _This project is to study the operation of CQRS with MediatR. A generic context was created to which one of the attributes receives json in string format. It makes it easy to build a screen component. This object is given the status of active or inactive followed by a Guid._
 
-[![N|Solid](https://f4n3x6c5.stackpathcdn.com/article/cqrs-and-mediatr-pattern-implementation-using-net-core-6-web-api/Images/Picture.png)](https://github.com/Cleoir-Dev/CQRSandMediatR)
+
+![Screenshot](Picture.png)
 
 CQRS stands for Command and Query Responsibility Segregation and uses to separate read(queries) and write(commands).
 
