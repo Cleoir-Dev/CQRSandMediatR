@@ -1,6 +1,8 @@
 ﻿using CQRSandMediatR.Commands;
+using CQRSandMediatR.Models;
 using CQRSandMediatR.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json.Nodes;
 
@@ -18,6 +20,7 @@ namespace CQRSandMediatR.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<List<object>> GetListAsync()
         {
             List<object> ResultList = new List<object>();
@@ -38,6 +41,7 @@ namespace CQRSandMediatR.Controllers
         }
 
         [HttpGet("id")]
+        [Authorize]
         public async Task<object> GetByIdAsync(Guid id)
         {
             object? result;
@@ -59,7 +63,7 @@ namespace CQRSandMediatR.Controllers
             {
                 id = id,
                 status = false,
-                jsonContext = "Json não encontrado!"
+                jsonContext = "Json not find!"
             };
 
             return result;
@@ -68,6 +72,7 @@ namespace CQRSandMediatR.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles = UserRoles.User)]
         public async Task<int> AddAsync(object json)
         {
             JsonObject obj = JsonNode.Parse(json.ToString()).AsObject();
@@ -78,6 +83,7 @@ namespace CQRSandMediatR.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<int> UpdateAsync(object json)
         {
 
@@ -93,6 +99,7 @@ namespace CQRSandMediatR.Controllers
         }
 
         [HttpDelete]
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<int> DeleteAsync(Guid id)
         {
             return await _mediator.Send(new DeleteCommand() { Id = id });
