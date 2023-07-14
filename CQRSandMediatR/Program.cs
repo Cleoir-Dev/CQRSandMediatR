@@ -1,5 +1,6 @@
 using CQRSandMediatR.Data;
 using CQRSandMediatR.Repositories;
+using CQRSandMediatR.Repositories.CategoryRepository;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -15,6 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 builder.Services.AddDbContext<DbContextData>();
 builder.Services.AddScoped<IContextRepository, ContextRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 //AddDbContext
 builder.Services.AddDbContext<ApplicationContext>(options =>

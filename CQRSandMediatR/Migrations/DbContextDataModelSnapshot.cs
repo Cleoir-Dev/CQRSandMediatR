@@ -39,6 +39,21 @@ namespace CQRSandMediatR.Migrations
 
                     b.ToTable("Details");
                 });
+
+            modelBuilder.Entity("CQRSandMediatR.Models.CategoryModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
 #pragma warning restore 612, 618
         }
     }

@@ -11,7 +11,5 @@ namespace CQRSandMediatR.Commands
 
         public bool Status { get; set; }
         public string JsonContext { get; set; }
-
-
     }
 }

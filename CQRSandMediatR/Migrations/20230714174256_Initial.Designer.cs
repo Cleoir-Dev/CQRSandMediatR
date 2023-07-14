@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CQRSandMediatR.Migrations
 {
     [DbContext(typeof(DbContextData))]
-    [Migration("20230218164451_initial")]
-    partial class initial
+    [Migration("20230714174256_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,6 +41,21 @@ namespace CQRSandMediatR.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Details");
+                });
+
+            modelBuilder.Entity("CQRSandMediatR.Models.CategoryModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
                 });
 #pragma warning restore 612, 618
         }
